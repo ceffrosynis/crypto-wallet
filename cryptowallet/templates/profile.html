@@ -1,0 +1,106 @@
+{% extends "cryptobase.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}<title>CryptoWallet - Edit Profile</title>{% endblock %}
+
+
+    <style>
+        {% block style %}
+
+        .edit-info .row {
+            margin: 10px;
+        }
+
+        .block {
+            background: white;
+        }
+
+        {% endblock %}
+    </style>
+
+</head>
+
+<body>
+    {% block search %}
+    {% endblock %}
+    {% block content %}
+    <section class="ftco-section ftco-section-2" id="navigationTabs">
+        <div class="container edit-info">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-6 mb-5 mb-md-0" style="opacity: 0.95">
+
+                    <h2 class="block heading-section mb-3">
+                        <center>Edit Profile</center>
+                    </h2>
+
+                    <form id='profile_form' method='post'>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+                                {{form.FirstName}}
+                            </div>
+                            <div class="col">
+                                {{form.LastName}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {{form.Email}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                {{form.BTC}}
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" name="WalletGeneration" class="btn btn-primary" ,
+                                value="btc">+</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                {{form.ETH}}
+                            </div>
+                            <div class="col-2">
+                                    <button type="submit" name="WalletGeneration" class="btn btn-primary" ,
+                                        value="eth">+</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                {{form.LTC}}
+                            </div>
+                            <div class="col-2">
+                                    <button type="submit" name="WalletGeneration" class="btn btn-primary" ,
+                                    value="ltc">+</button>
+                                </div>
+                            </div>
+
+                        <div class="footer text-center">
+                            <button id="save_btn" class="primaryAction btn btn-success w-50" type="submit">Save</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+                <script>
+                    $(document).on('keyup keypress', (function(e) {
+                        var keyCode = e.keyCode || e.which;
+                        if (keyCode == 13) {
+                            e.preventDefault();
+                            $('#save_btn').click();
+                        }
+                    }));
+                </script>
+    {% endblock %}
+</body>
+
+
+
+</html>

@@ -1,0 +1,77 @@
+{% extends "cryptobase.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}<title>CryptoWallet - Home</title>{% endblock %}
+
+    <style>
+        {% block style %}
+
+        .block {
+            background: white;
+        }
+
+        .address {
+            color: black;
+        }
+
+        .correct-flow {
+            display: flex !important;
+            align-items: center;
+        }
+
+        .visit-prof {
+            display: inline-flex;
+        }
+        .result {
+            flex: auto;
+            justify-content: left;
+            display: inline-flex;
+            width: inherit;
+            color:black;
+        }
+
+        {% endblock %}
+    </style>
+</head>
+
+<body>
+
+    {% block content %}
+
+    <section class="ftco-section ftco-section-2" id="navigationTabs">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 mb-5 mb-md-0" style="opacity: 0.95">
+                    <h2 class="block heading-section mb-3 rounded">
+                        <center>Result</center>
+                    </h2>
+                    <form id='profile_form' method='post'>
+                        {% csrf_token %}
+                        <div class="tabulation-2">
+                            {% for u in user %}
+                            <div class="tab-content rounded mt-2">
+                                <div class="correct-flow tab-pane container p-4 active">
+                                    <span class="result">{{u}}</span>
+                                    <button id="vp_btn" type="submit" class="visit-prof btn btn-primary" name="VisitProfile" value="{{u}}">Visit Profile</button>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+
+</body>
+
+
+
+</html>
