@@ -22,13 +22,13 @@ This is a full-stack web application which is written in Python by making use of
     └── requirements.txt       # Project's dependencies
 
 
-## Installation
-
 ---
 **NOTE**
 
 Python Version: 3.5.2
 ---
+
+## Installation
 
 ```
 python3 -m venv venv
