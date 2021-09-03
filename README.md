@@ -27,8 +27,7 @@ This is a full-stack web application which is written in Python by making use of
 ---
 **NOTE**
 
-It works with almost all markdown flavours (the below blank line matters).
-
+Python Version: 3.5.2
 ---
 
 ```
