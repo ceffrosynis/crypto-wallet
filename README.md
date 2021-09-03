@@ -24,6 +24,13 @@ This is a full-stack web application which is written in Python by making use of
 
 ## Installation
 
+---
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+---
+
 ```
 python3 -m venv venv
 source venv/bin/activate
