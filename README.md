@@ -12,7 +12,9 @@ This is a full-stack web application which is written in Python by making use of
     ├── allauth                # Authentication management
     ├── crypto                 # Project's main directory
     ├── cryptowallet           # Application's main logic
+    │   ├── ...
     │   ├── templates          # Application's templates
+    │   ├── ...
     ├── ...
     ├── static                 # Project's static files
     ├── templates              # Project's base template
