@@ -12,21 +12,14 @@ This is a full-stack web application which is written in Python by making use of
     ├── allauth                # Authentication management
     ├── crypto                 # Project's main directory
     ├── cryptowallet           # Application's main logic
+    │   ├── templates          # Application's templates
     ├── ...
     ├── static                 # Project's static files
-    ├── templates
+    ├── templates              # Project's base template
     ├── ...
     ├── ...
     ├── ...
     ├── requirements.txt        # Project's dependencies
-    ├── ...
-    ├── docs                    # Documentation files (alternatively `doc`)
-    │   ├── TOC.md              # Table of contents
-    │   ├── faq.md              # Frequently asked questions
-    │   ├── misc.md             # Miscellaneous information
-    │   ├── usage.md            # Getting started guide
-    │   └── ...                 # etc.
-    └── ...
 
 
 ## Installation
