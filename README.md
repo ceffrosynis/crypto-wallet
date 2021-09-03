@@ -9,16 +9,16 @@ This is a full-stack web application which is written in Python by making use of
 ## Directory Structure
 
     .
-    ├── allauth
-    ├── crypto
-    ├── cryptowallet
-    ├── pics
-    ├── static
+    ├── allauth                # Authentication management
+    ├── crypto                 # Project's main directory
+    ├── cryptowallet           # Application's main logic
+    ├── ...
+    ├── static                 # Project's static files
     ├── templates
-    ├── venv
-    ├── README.md
-    ├── manage.py
-    ├── requirements.txt
+    ├── ...
+    ├── ...
+    ├── ...
+    ├── requirements.txt        # Project's dependencies
     ├── ...
     ├── docs                    # Documentation files (alternatively `doc`)
     │   ├── TOC.md              # Table of contents
