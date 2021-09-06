@@ -33,6 +33,7 @@ Python Version: 3.5.2
 ```
 python3 -m venv venv
 source venv/bin/activate
+pip install wheel
 pip install -r requirements.txt
 ```
 
