@@ -59,17 +59,20 @@ class profile(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         form = UserProfileForm(self.request.POST or None)
         if form.is_valid():
+            user = User.objects.filter(UserID=request.user)
             if 'WalletGeneration' in request.POST:
-                WalletType = request.POST['WalletGeneration']
-                print (WalletType)
-                if WalletType:
-                    wallet = self.Wallets[WalletType].objects.filter(UserID=request.user)
-                    if wallet.exists():
-                        wallet.delete()
-                    wallet = self.WalletGenerator[WalletType]()
-                    self.arguments[WalletType][WalletType.upper()] = wallet
-                    self.Wallets[WalletType].objects.create(UserID=request.user, **(self.arguments[WalletType]))
-                    return redirect('crypto:profile')
+                if user.exists():
+                    WalletType = request.POST['WalletGeneration']
+                    if WalletType:
+                        wallet = self.Wallets[WalletType].objects.filter(UserID=request.user)
+                        if wallet.exists():
+                            wallet.delete()
+                        wallet = self.WalletGenerator[WalletType]()
+                        self.arguments[WalletType][WalletType.upper()] = wallet
+                        self.Wallets[WalletType].objects.create(UserID=request.user, **(self.arguments[WalletType]))
+                else:
+                    messages.add_message(request, messages.INFO, 'You have to submit your Personal Information (Name and Email) first and hit save, in order for you to be able to create a wallet.')
+                return redirect('crypto:profile')
         
             FirstName = form.cleaned_data.get('FirstName')
             LastName = form.cleaned_data.get('LastName')
@@ -77,7 +80,7 @@ class profile(LoginRequiredMixin, View):
             BTCField = form.cleaned_data.get('BTC')
             ETHField = form.cleaned_data.get('ETH')
             LTCField = form.cleaned_data.get('LTC')
-            user = User.objects.filter(UserID=request.user)
+            
             try:
                 if user.exists():
                     UserProfile=user[0]
